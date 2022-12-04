@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mproduits-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mproduits
+  template:
+    metadata:
+      labels:
+        app: mproduits
+    spec:
+      containers:
+        - name: mproduits
+          image: aitsalh/mproduits:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-server-srv:9101
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mproduits-srv
+spec:
+  selector:
+    app: mproduits
+  ports:
+    - name: mproduits
+      protocol: TCP
+      port: 9001
+      targetPort: 9001

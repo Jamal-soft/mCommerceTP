@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mpaiement-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mpaiement
+  template:
+    metadata:
+      labels:
+        app: mpaiement
+    spec:
+      containers:
+        - name: mpaiement
+          image: aitsalh/mpaiment:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mpaiement-srv
+spec:
+  selector:
+    app: mpaiement
+  ports:
+    - name: mpaiement
+      protocol: TCP
+      port: 9003
+      targetPort: 9003

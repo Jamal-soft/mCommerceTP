@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+        <module name="eureka" />
+        <module name="client-ui" />
+        <module name="microservice-produits" />
+        <module name="mpaiement" />
+        <module name="springadmin" />
+        <module name="mcommandes" />
+        <module name="gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client-ui" target="1.8" />
+      <module name="config-server" target="11" />
+      <module name="demo" target="1.8" />
+      <module name="eureka" target="11" />
+      <module name="gateway" target="1.8" />
+      <module name="mcommandes" target="1.8" />
+      <module name="microservice-produits" target="1.8" />
+      <module name="mpaiement" target="1.8" />
+      <module name="mproduits" target="1.8" />
+      <module name="springadmin" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="client-ui" options="-parameters" />
+      <module name="config-server" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="eureka" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="mcommandes" options="-parameters" />
+      <module name="microservice-produits" options="-parameters" />
+      <module name="mpaiement" options="-parameters" />
+      <module name="mproduits" options="-parameters" />
+      <module name="springadmin" options="-parameters" />
+    </option>
+  </component>
+</project>

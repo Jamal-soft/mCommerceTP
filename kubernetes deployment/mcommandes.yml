@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcommandes-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcommandes
+  template:
+    metadata:
+      labels:
+        app: mcommandes
+    spec:
+      containers:
+        - name: mcommandes
+          image: aitsalh/mcommandes:0.0.1-SNAPSHOT
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mcommandes-srv
+spec:
+  selector:
+    app: mcommandes
+  ports:
+    - name: mcommandes
+      protocol: TCP
+      port: 9002
+      targetPort: 9002

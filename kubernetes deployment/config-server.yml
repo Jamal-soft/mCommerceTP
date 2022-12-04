@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: config-server-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: config-server
+  template:
+    metadata:
+      labels:
+        app: config-server
+    spec:
+      containers:
+        - name: config-server
+          image: aitsalh/config-server:0.0.1-SNAPSHOT
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: config-server-srv
+spec:
+  selector:
+    app: config-server
+  ports:
+    - name: config-server
+      protocol: TCP
+      port: 9101
+      targetPort: 9101
